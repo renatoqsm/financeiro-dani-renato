@@ -36,3 +36,11 @@ Credenciais devem ser fornecidas pelo ambiente seguro, nunca adicionadas ao Git.
 Com `npm run dev` ativo, execute `python3 scripts/smoke.py` (Python 3). O teste usa somente o servidor local na porta 8787 e cria uma conta fictícia no D1 local. Confere os 10 arquivos estáticos byte a byte e testa saúde, cadastro, login, proteção de origem, leitura, gravação, conflito de revisão e logout.
 
 A recuperação passou nesses testes e em `npx wrangler deploy --dry-run`. Nenhum deploy de produção foi realizado. A interface foi validada por requisições HTTP; não foi feita validação visual em navegador.
+
+## Filtros dos lançamentos
+
+Cada coluna de dados tem seu filtro abaixo do título. Lançamento busca nome, categoria, pessoa, benefício e caixinha sem distinguir acentos; Dia permite um intervalo; Tipo, Banco e Situação têm seletores; Planejado, Real e Diferença aceitam limites em reais. Real e Diferença também permitem selecionar registros com ou sem valor informado. Os filtros são combinados com as abas, busca e ordenação existentes. “Limpar filtros” limpa os filtros das colunas.
+
+A implementação editável fica em `public/transaction-filters.js` e `public/transaction-filters.css`, integrada ao componente da tabela no bundle recuperado. O nome do bundle foi atualizado para invalidar cache. `recovery-sha256.json` registra a recuperação original, antes destas alterações; não é um manifesto da versão atual.
+
+Testes: `npm test`. Com o servidor local ativo na porta 8787 e Chromium instalado, `npm run test:browser` testa a tela com uma conta fictícia local (use `CHROMIUM_PATH` para indicar outro caminho do Chromium).

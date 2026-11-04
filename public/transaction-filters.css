@@ -1,0 +1,8 @@
+.column-filters td { vertical-align: top; padding: 8px 12px 12px; }
+.column-filter-cell input, .column-filter-cell select { box-sizing: border-box; width: 100%; min-width: 110px; min-height: 36px; padding: 7px 9px; border: 1px solid #cbd8d3; border-radius: 7px; background: #fff; color: #173e35; font: inherit; font-size: 12px; }
+.column-filter-cell:first-child input { min-width: 195px; }
+.column-filter-cell input:focus-visible, .column-filter-cell select:focus-visible { outline: 2px solid #267760; outline-offset: 2px; }
+.column-filter-range { display: grid; gap: 5px; }
+.column-filters .text-button { white-space: nowrap; }
+.column-filter-summary { padding: 10px 16px; color: #536b62; font-size: 13px; }
+.column-filter-empty { padding: 28px !important; text-align: center; color: #536b62; }
