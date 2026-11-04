@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "casa-em-dia",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "vars": {
+    "ALLOW_SIGNUP": "true"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "casa-em-dia",
+      "database_id": "83b323f8-091f-4e30-baa7-c4a3d24cb977"
+    }
+  ]
+}

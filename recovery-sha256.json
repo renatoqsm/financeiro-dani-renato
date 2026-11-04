@@ -1,0 +1,13 @@
+{
+  "worker/index.js": "37b7fc8a560afacfcb887fa158c487ac377804971e1bfd5a0839b883c49a54f8",
+  "public/assets/index-BTVYenRQ.css": "8eaa21ca26b37b6ff89de0aeaf2934c30f4f1dd1426c39a61db6abbba18ccc17",
+  "public/assets/index-BdKZErdm.js": "0e1d44b85b4e14f07e542a26e5a63ac4764a5b0c7ccf3af5f69b322c58e6fc93",
+  "public/icons/apple-touch-icon.png": "26fba79152ff68ddfb579d40f416d599b513b82b7017d65eae40d4d49060de6b",
+  "public/icons/icon-192.png": "16c52c9b0a6f1a07e63bb06fb1799802748489e8ac98d6db416305af6157fbaa",
+  "public/icons/icon-512.png": "0dda72153c89885ec43c1616231e2627f4515fa96a8beb28dd68ef571cbe1f7e",
+  "public/icons/maskable-512.png": "0dda72153c89885ec43c1616231e2627f4515fa96a8beb28dd68ef571cbe1f7e",
+  "public/index.html": "c205b9ecd64b770ceb73c9c336a1a11ff43cd60c8de507131fdca31c8120d965",
+  "public/manifest.webmanifest": "1e5b615a8e1523361ffc06f6e303d426ae4723701050407f21344ab20622fed4",
+  "public/offline.html": "4ba6cd202d4b18721826f719999b45c4b1f870f53d6b68b281814154e1b7ee62",
+  "public/sw.js": "4439e848827b23fd3a40d4368cca0e011009b5244187aae18b844236aca3c9d5"
+}
