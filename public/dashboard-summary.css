@@ -1,0 +1,16 @@
+.monthly-plan { padding: 20px 24px; margin-bottom: 20px; }
+.monthly-plan-result { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.monthly-plan-result strong { font-size: 14px; }
+.monthly-plan-result p { margin: 5px 0 0; color: #708279; font-size: 12px; line-height: 1.5; }
+.monthly-plan-result .monthly-plan-value { font-size: 22px; white-space: nowrap; }
+.monthly-plan summary { margin-top: 14px; color: #23634f; font-size: 12px; cursor: pointer; }
+.monthly-plan-breakdown { display: grid; gap: 10px; margin: 16px 0; }
+.monthly-plan-breakdown > div { display: flex; justify-content: space-between; gap: 16px; font-size: 13px; }
+.monthly-plan-breakdown dt { color: #536b62; }
+.monthly-plan-breakdown dd { margin: 0; font-weight: 600; white-space: nowrap; }
+.monthly-plan-note { color: #708279; font-size: 12px; line-height: 1.6; }
+@media (max-width: 600px) {
+  .monthly-plan { padding: 16px; }
+  .monthly-plan-result { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .monthly-plan-breakdown > div { font-size: 12px; }
+}

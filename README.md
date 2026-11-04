@@ -44,3 +44,13 @@ Cada coluna de dados tem um botão compacto abaixo do título que abre seu filtr
 A implementação editável fica em `public/transaction-filters.js` e `public/transaction-filters.css`, integrada ao componente da tabela no bundle recuperado. O nome do bundle foi atualizado para invalidar cache. `recovery-sha256.json` registra a recuperação original, antes destas alterações; não é um manifesto da versão atual.
 
 Testes: `npm test`. Com o servidor local ativo na porta 8787 e Chromium instalado, `npm run test:browser` testa a tela com uma conta fictícia local (use `CHROMIUM_PATH` para indicar outro caminho do Chromium).
+
+## Previsão das saídas no painel
+
+O cartão **Saídas previstas** soma contas em dinheiro, a parcela ainda não utilizada dos orçamentos em dinheiro e todos os aportes previstos do mês. Os gastos de uma categoria já consomem seu orçamento: somar apenas o restante evita duplicação. Valores reais informados substituem a estimativa do lançamento. Benefícios permanecem separados.
+
+**Aportes previstos** soma os lançamentos de aporte, aportes mensais configurados e movimentos positivos das caixinhas no mês selecionado; esse total já está incluído nas saídas. Retiradas aparecem separadamente na composição e não reduzem o cartão de aportes. O saldo acumulado permanece na página Caixinhas.
+
+**Resultado previsto do mês** = entradas em dinheiro − saídas previstas + retiradas das caixinhas, sem somar o saldo inicial. Os cartões de saldo na conta e saldo livre mantêm suas regras anteriores. A composição detalhada pode ser aberta logo abaixo dos três cartões.
+
+Código editável: `public/dashboard-summary.js` e `public/dashboard-summary.css`. Testes do cálculo: `npm test`. Com o servidor local ativo e Chromium instalado: `npm run test:dashboard` verifica orçamento, gastos, aportes, retiradas, benefícios, alterações do orçamento, mês futuro e responsividade usando somente dados fictícios locais.
