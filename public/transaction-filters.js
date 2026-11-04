@@ -36,6 +36,41 @@ export function matchesFilters(item, filters, banks = [], jars = []) {
     return !filter || value === filter;
   });
 }
+function FilterPopover({ React: h, label, filter, children }) {
+  const el = h.createElement;
+  const id = h.useId();
+  const [open, setOpen] = h.useState(false);
+  const active = typeof filter === 'string' ? !!filter.trim() : !!filter && Object.values(filter).some(value => value !== '' && value != null);
+  const summary = !active ? 'Filtrar' : typeof filter === 'string' ? filter : [
+    filter.min !== '' && filter.min != null ? `De ${filter.min}` : '',
+    filter.max !== '' && filter.max != null ? `Até ${filter.max}` : '',
+    filter.presence === 'missing' ? 'Sem valor' : filter.presence === 'present' ? 'Com valor' : '',
+  ].filter(Boolean).join(' · ');
+  return el(h.Fragment, null,
+    el('button', {
+      type: 'button', className: `column-filter-trigger${active ? ' is-active' : ''}`,
+      'aria-label': `Abrir filtro de ${label}`, 'aria-haspopup': 'dialog', 'aria-expanded': open, 'aria-controls': id,
+      title: active ? `${label}: ${summary}` : `Filtrar ${label}`,
+      onClick: event => {
+        const panel = document.getElementById(id);
+        if (panel.matches(':popover-open')) { panel.hidePopover(); return; }
+        const rect = event.currentTarget.getBoundingClientRect();
+        const width = Math.min(260, window.innerWidth - 24);
+        panel.style.width = `${width}px`;
+        panel.style.left = `${Math.max(12, Math.min(rect.left, window.innerWidth - width - 12))}px`;
+        panel.style.top = `${Math.max(12, Math.min(rect.bottom + 8, window.innerHeight - 285))}px`;
+        panel.showPopover();
+        panel.querySelector('input, select')?.focus({ preventScroll: true });
+      },
+    }, el('svg', { width: 13, height: 13, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, 'aria-hidden': true },
+      el('path', { d: 'M4 5h16l-6 7v6l-4 2v-8z' })), el('span', null, summary)),
+    el('div', { id, popover: 'auto', role: 'dialog', 'aria-label': `Filtro de ${label}`, className: 'column-filter-popover',
+      onToggle: event => setOpen(event.currentTarget.matches(':popover-open')),
+    }, el('div', { className: 'column-filter-popover-heading' }, el('strong', null, label),
+      el('button', { type: 'button', className: 'column-filter-close', 'aria-label': `Fechar filtro de ${label}`, onClick: () => document.getElementById(id).hidePopover() }, '×')),
+    children,
+    el('button', { type: 'button', className: 'column-filter-done', onClick: () => document.getElementById(id).hidePopover() }, 'Concluir')));
+}
 export function ColumnFilterRow({ React: h, items, banks, filters, onChange, onClear }) {
   const el = h.createElement;
   const updateRange = (key, field, value) => onChange(key, { ...(filters[key] || {}), [field]: value });
@@ -65,7 +100,7 @@ export function ColumnFilterRow({ React: h, items, banks, filters, onChange, onC
           onChange: event => onChange(key, event.target.value) },
         el('option', { value: '' }, 'Todos'), ...options.map(value => el('option', { key: value, value }, value)));
       }
-      return el('td', { key, className: 'column-filter-cell' }, control);
+      return el('td', { key, className: 'column-filter-cell' }, el(FilterPopover, { React: h, label, filter: filters[key] }, control));
     }),
     el('td', null, el('button', { type: 'button', className: 'text-button', onClick: onClear }, 'Limpar filtros')));
 }

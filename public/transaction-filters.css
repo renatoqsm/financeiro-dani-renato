@@ -1,8 +1,17 @@
-.column-filters td { vertical-align: top; padding: 8px 12px 12px; }
-.column-filter-cell input, .column-filter-cell select { box-sizing: border-box; width: 100%; min-width: 110px; min-height: 36px; padding: 7px 9px; border: 1px solid #cbd8d3; border-radius: 7px; background: #fff; color: #173e35; font: inherit; font-size: 12px; }
-.column-filter-cell:first-child input { min-width: 195px; }
-.column-filter-cell input:focus-visible, .column-filter-cell select:focus-visible { outline: 2px solid #267760; outline-offset: 2px; }
-.column-filter-range { display: grid; gap: 5px; }
-.column-filters .text-button { white-space: nowrap; }
-.column-filter-summary { padding: 10px 16px; color: #536b62; font-size: 13px; }
+.column-filters td { padding: 0 12px 12px; vertical-align: top; }
+.column-filter-trigger { display: inline-flex; align-items: center; gap: 6px; max-width: 155px; min-height: 30px; padding: 5px 9px; border: 1px solid transparent; border-radius: 6px; background: #f4f7f5; color: #708279; font: inherit; font-size: 11px; cursor: pointer; }
+.column-filter-trigger span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.column-filter-trigger svg { flex-shrink: 0; }
+.column-filter-trigger:hover { background: #eaf1ed; color: #245e4c; }
+.column-filter-trigger.is-active { background: #e5f2eb; border-color: #a9cdbc; color: #185c43; font-weight: 600; }
+.column-filter-popover { position: fixed; inset: auto; margin: 0; box-sizing: border-box; padding: 16px; border: 1px solid #dbe5df; border-radius: 12px; background: #fff; color: #173e35; box-shadow: 0 12px 40px #123d2926; font-family: inherit; }
+.column-filter-popover::backdrop { background: transparent; }
+.column-filter-popover-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; font-size: 13px; }
+.column-filter-close { border: 0; background: transparent; color: #708279; font-size: 22px; cursor: pointer; padding: 0 4px; }
+.column-filter-popover input, .column-filter-popover select { box-sizing: border-box; width: 100%; min-height: 40px; padding: 9px 11px; border: 1px solid #cbd8d3; border-radius: 7px; background: #fff; color: #173e35; font: inherit; font-size: 13px; }
+.column-filter-range { display: grid; gap: 8px; }
+.column-filter-done { display: block; width: 100%; margin-top: 12px; padding: 9px 12px; border: 0; border-radius: 7px; background: #23634f; color: #fff; font: inherit; font-size: 12px; cursor: pointer; }
+.column-filter-trigger:focus-visible, .column-filter-popover :focus-visible { outline: 2px solid #267760; outline-offset: 2px; }
+.column-filters .text-button { white-space: nowrap; font-size: 11px; min-height: 30px; }
+.column-filter-summary { padding: 10px 16px; color: #708279; font-size: 12px; }
 .column-filter-empty { padding: 28px !important; text-align: center; color: #536b62; }

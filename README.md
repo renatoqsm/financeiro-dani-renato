@@ -39,7 +39,7 @@ A recuperação passou nesses testes e em `npx wrangler deploy --dry-run`. Nenhu
 
 ## Filtros dos lançamentos
 
-Cada coluna de dados tem seu filtro abaixo do título. Lançamento busca nome, categoria, pessoa, benefício e caixinha sem distinguir acentos; Dia permite um intervalo; Tipo, Banco e Situação têm seletores; Planejado, Real e Diferença aceitam limites em reais. Real e Diferença também permitem selecionar registros com ou sem valor informado. Os filtros são combinados com as abas, busca e ordenação existentes. “Limpar filtros” limpa os filtros das colunas.
+Cada coluna de dados tem um botão compacto abaixo do título que abre seu filtro. Os campos ficam recolhidos e os filtros aplicados aparecem em verde, com um resumo no botão. Clique fora da janela, pressione Esc ou use Concluir para fechá-la. Lançamento busca nome, categoria, pessoa, benefício e caixinha sem distinguir acentos; Dia permite um intervalo; Tipo, Banco e Situação têm seletores; Planejado, Real e Diferença aceitam limites em reais. Real e Diferença também permitem selecionar registros com ou sem valor informado. Os filtros são combinados com as abas, busca e ordenação existentes. “Limpar filtros” limpa os filtros das colunas.
 
 A implementação editável fica em `public/transaction-filters.js` e `public/transaction-filters.css`, integrada ao componente da tabela no bundle recuperado. O nome do bundle foi atualizado para invalidar cache. `recovery-sha256.json` registra a recuperação original, antes destas alterações; não é um manifesto da versão atual.
 
